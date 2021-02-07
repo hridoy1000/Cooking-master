@@ -1,20 +1,20 @@
 const firstUrl = "https://www.themealdb.com/api/json/v1/1/";
 const inputArea = document.getElementById("search-field");
 const searchBtn = document.getElementById("search-btn");
-const displayArea = document.getElementById("display");
-const detailsArea = document.getElementById("details-area");
+const display = document.getElementById("display");
+const details = document.getElementById("details-area");
 
 searchBtn.addEventListener("click",()=>{
     searchFoodByName(inputArea.value);
             })
             const searchFoodByName = keyword =>{
                 if (keyword != "") {
-                    showLoader(displayArea, true);
+                    showLoader(display, true);
                     let url = `${firstUrl}search.php?s=${keyword}`;
                     fetch(encodeURI(url))
                     .then(data=>data.json())
                     .then(data=>{
-                        showLoader(displayArea, false);
+                        showLoader(display, false);
                         displayFood(data);
                     });
                 }    
@@ -23,11 +23,11 @@ searchBtn.addEventListener("click",()=>{
                 if (data.meals === null) {
                     showNotFoundMessage();
                 } else {
-                    displayArea.innerHTML = createFoodCard(data)
+                    display.innerHTML = createFoodCard(data)
                 }
             }
             const showNotFoundMessage = () => {
-                displayArea.innerHTML = `<h1>Not found</h1><br>
+                display.innerHTML = `<h1>Not found</h1><br>
                 <span class="material-icons" style="font-size:30px;padding: 20px 10px">
                 sentiment_very_dissatisfied
                 </span>`;
@@ -57,7 +57,7 @@ searchBtn.addEventListener("click",()=>{
                             for(let i = 1; i <= 10; i++){
                                 ingredients += `<li><i class="material-icons">check_box</i> ${item["strIngredient"+i]}</li>`;
                             }
-                        detailsArea.innerHTML = `<section id="modal">
+                        details.innerHTML = `<section id="modal">
                         <div class="modal-content">
                             <div class="modal-body">
                             <div class="food-details">
@@ -75,7 +75,7 @@ searchBtn.addEventListener("click",()=>{
                     });
 }
 const hideFoodDetails = ()=> {
-    detailsArea.innerHTML = "";
+    details.innerHTML = "";
 }
 const showLoader = (parent, argument) => {
     argument ? parent.innerHTML = `<div class="loader"></div>` : "";
