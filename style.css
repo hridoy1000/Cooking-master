@@ -9,7 +9,7 @@
   body {
     margin: 0;
     padding: 0;
-    background-color: #e67e1c;
+    background-color: #161514;
     font-family: "Roboto", sans-serif;
   }
   nav {
@@ -20,7 +20,7 @@
   }
   .site-title {
     margin-left: 50px;
-    color: #3b2d64;
+    color: #d4caf1;
     text-decoration: none;
     cursor: pointer;
   }
@@ -29,7 +29,7 @@
   }
   .nav-content {
     float: right;
-    color: #3b2d64;
+    color: #b7a6e9;
     font-weight: 50px;
     list-style: none;
   }
@@ -64,12 +64,12 @@
     border: none;
     outline: none;
     border-radius: 0px 5px 5px 0px;
-    background-color: #3b2d64;
+    background-color: #1835d6;
     color: white;
   }
   .search-btn:hover {
     cursor: pointer;
-    background-color: #31214b;
+    background-color: #af9acf;
   }
   .display-area {
     display: flex;
@@ -79,7 +79,7 @@
     padding: 50px 100px;
   }
   .food-item {
-    width: 200px;
+    width: 300px;
     margin: 20px 20px;
     box-shadow: 1px 1px 10px 5px rgba(165, 165, 165, 0.5);
     background-color: white;
@@ -97,11 +97,9 @@
   .thumbnail img {
     width: 100%;
     height: 100%;
-    transition: transform 0.2s;
+  
   }
-  .thumbnail img:hover {
-    transform: scale(1.2);
-  }
+ 
   .food-name {
     display: flex;
     align-items: center;
@@ -109,7 +107,7 @@
     padding: 0px 10px;
     border-radius: 0px 0px 5px 5px;
   }
-  /* Food Details */
+ 
   .details-area {
     display: flex;
     align-items: center;
@@ -157,7 +155,7 @@
     height: 50px;
     animation: spin 0.5s linear infinite;
   }
-  /* modal */
+ 
   #modal {
     position: fixed;
     margin: 0;

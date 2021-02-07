@@ -5,16 +5,16 @@ const display = document.getElementById("display");
 const details = document.getElementById("details-area");
 
 searchBtn.addEventListener("click",()=>{
-    searchFoodByName(inputArea.value);
+    searchByName(inputArea.value);
             })
-            const searchFoodByName = keyword =>{
+            const searchByName = keyword =>{
                 if (keyword != "") {
-                    showLoader(display, true);
+                    load(display, true);
                     let url = `${firstUrl}search.php?s=${keyword}`;
                     fetch(encodeURI(url))
                     .then(data=>data.json())
                     .then(data=>{
-                        showLoader(display, false);
+                        load(display, false);
                         displayFood(data);
                     });
                 }    
@@ -61,7 +61,7 @@ searchBtn.addEventListener("click",()=>{
                         <div class="modal-content">
                             <div class="modal-body">
                             <div class="food-details">
-                                <button id="modal-btn" onclick="hideFoodDetails()">X</button>
+                                <button id="modal-btn" onclick="hideDetails()">X</button>
                                 <img src="${item.strMealThumb}" />
                                 <div class="details">
                                 <h1>${item.strMeal}</h1>
@@ -74,9 +74,9 @@ searchBtn.addEventListener("click",()=>{
                         </section>`;
                     });
 }
-const hideFoodDetails = ()=> {
+const hideDetails = ()=> {
     details.innerHTML = "";
 }
-const showLoader = (parent, argument) => {
-    argument ? parent.innerHTML = `<div class="loader"></div>` : "";
+const load = (parent, argument) => {
+    argument ? parent.innerHTML = `<div class="load"></div>` : "";
 }
